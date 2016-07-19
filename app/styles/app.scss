@@ -15,3 +15,87 @@ $icon-font-path: '../../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
 img {
   max-width: 100%;
 }
+//Header
+.banner{
+  border-bottom: 1px solid #f0f1f0;
+  padding-bottom: 8px;
+  padding-top: 5px;
+}
+// login
+.navbar-form{
+  margin-top: 100px;
+}
+.log-email{
+  padding: 10px;
+  border-radius: 3px;
+  font-size: 16px;
+  border:  1px solid #f0f1f0;
+}
+.log-password{
+  padding: 10px;
+  border-radius: 3px;
+  display: block;
+  font-size: 16px;
+  border:  1px solid #f0f1f0;
+}
+.login{
+  width: 166px;
+}
+.need-account{
+  display: block;
+  color: grey;
+  text-decoration: none;
+}
+//Sign up
+.signup-complete{
+  margin-top: 100px;
+}
+.sign-email{
+  width: 365px;
+  padding: 10px;
+  border-radius: 3px;
+  display: block;
+  font-size: 16px;
+  border:  1px solid #f0f1f0;
+}
+.first-name{
+  width: 175px;
+  padding: 10px;
+  border-radius: 3px;
+  display: inline;
+  font-size: 16px;
+  border:  1px solid #f0f1f0;
+}
+.last-name{
+  margin-top: 15px;
+  margin-left: 15px;
+  width: 175px;
+  padding: 10px;
+  border-radius: 3px;
+  display: inline;
+  font-size: 16px;
+  border:  1px solid #f0f1f0;
+}
+.sign-password{
+  margin-top: 15px;
+  width: 175px;
+  display: inline;
+  padding: 10px;
+  border-radius: 3px;
+  font-size: 16px;
+  border:  1px solid #f0f1f0;
+}
+.conf-password{
+  width: 175px;
+  margin-left: 15px;
+  display: inline;
+  padding: 10px;
+  border-radius: 3px;
+  font-size: 16px;
+  border:  1px solid #f0f1f0;
+}
+.sign-success{
+  margin-top: 15px;
+  width: 150px;
+  font-size: 20px;
+}
