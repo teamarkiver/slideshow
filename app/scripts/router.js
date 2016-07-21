@@ -4,12 +4,22 @@ var ReactDOM = require('react-dom');
 var $ = require('jquery');
 
 var UserLoginComponent = require('./components/login.jsx').UserLoginComponent;
-var SignUpComponent = require('./components/signup.jsx').SignUpComponent;
+var SlideListComponent = require('./components/slidelist.jsx').SlideListComponent;
 
 var Router = Backbone.Router.extend({
     routes: {
         '': 'login',
-        'sign-up': 'signin'
+        'slide/list': 'slidelist'
+    },
+    execute: function(cb, args) {
+      console.log("execute called");
+      if (localStorage['logged_in']) {
+        cb.apply( this, args)
+      } else {
+        console.log("user is not logged in, so redirect to login yo, this is ", this);
+        this.navigate("")
+        this.login()
+      }
     },
     login: function(){
         ReactDOM.render(
@@ -17,9 +27,9 @@ var Router = Backbone.Router.extend({
           document.getElementById('container')
         );
     },
-    signin: function(){
+    slidelist: function(){
       ReactDOM.render(
-        React.createElement(SignUpComponent, {router: this}),
+        React.createElement(SlideListComponent, {router: this}),
         document.getElementById('container')
       );
     }

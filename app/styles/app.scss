@@ -99,3 +99,38 @@ img {
   width: 150px;
   font-size: 20px;
 }
+//Slide list
+.slider-main{
+  background-color: #f9fbfa;
+}
+.slide-container{
+  width: 1000px;
+  height: 500px;
+  border: 1px solid #f0f1f0;
+  border-radius: 4px;
+  background-color: white;
+}
+.title-slide{
+  font-family: ff-tisa-sans-web-pro;
+  font-size: 40px;
+  color: #5a5c5b;
+}
+.title-author{
+  color: #5a5c5b;
+  font-size: 16px;
+}
+//Buttons
+.delete{
+  float: right;
+  display: inline;
+}
+.edit{
+  margin-right: 3px;
+  float: right;
+  display: inline;
+}
+.view{
+  float: right;
+  margin-right: 3px;
+  display: inline;
+}
