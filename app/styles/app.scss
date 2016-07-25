@@ -15,6 +15,13 @@ $icon-font-path: '../../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
 img {
   max-width: 100%;
 }
+//container
+.container-fluid{
+  padding-right: 0px;
+  padding-left: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
 //Header
 .banner{
   border-bottom: 1px solid #f0f1f0;
@@ -39,7 +46,17 @@ img {
   border:  1px solid #f0f1f0;
 }
 .login{
+  margin-top: 10px;
+  font-size: 18px;
+  //line-height: 37px;
   width: 166px;
+  background-color: rgb(209,229,219);
+  color: rgb(77,169,120);
+  border: 1px solid #4eab79;
+}
+.login:hover{
+  transition-duration: .25s;
+  background-color: #4eab79;
 }
 .need-account{
   display: block;
@@ -104,14 +121,14 @@ img {
   background-color: #f9fbfa;
 }
 .slide-container{
-  width: 1000px;
-  height: 500px;
+  // width: 100%;
+  // height: 100%;
   border: 1px solid #f0f1f0;
   border-radius: 4px;
   background-color: white;
 }
 .title-slide{
-  font-family: ff-tisa-sans-web-pro;
+  font-family: 'Lobster', cursive;
   font-size: 40px;
   color: #5a5c5b;
 }
@@ -119,18 +136,58 @@ img {
   color: #5a5c5b;
   font-size: 16px;
 }
+// Slide list
+.slideshow-item{
+  list-style: none;
+  border-bottom: 1px solid grey;
+}
+.slideshow-name{
+  text-transform: capitalize;
+}
+// Images
+.image-thumb{
+  display: inline-block;
+}
 //Buttons
+.slideshow-actions{
+  margin-top: 20px;
+}
 .delete{
-  float: right;
-  display: inline;
+  margin-right: 3px;
+  display: inline-block;
 }
 .edit{
   margin-right: 3px;
-  float: right;
-  display: inline;
+  display: inline-block;
 }
 .view{
-  float: right;
   margin-right: 3px;
-  display: inline;
+  display: inline-block;
+}
+.create{
+  margin-top: 20px;
+  width: 150px;
+  font-size: 18px;
+  background-color: rgb(209,229,219);
+  color: rgb(77,169,120);
+  border: 1px solid #4eab79;
+}
+.create:hover{
+  transition-duration: .25s;
+  background-color: #4eab79;
+}
+.create-secondary{
+  text-decoration: none;
+  font-color: green;
+}
+//Create/Edit screen
+.save{
+  background-color: #F37676;
+  width: 150px;
+  font-size: 18px;
+  margin-top: 20px;
+}
+.save:hover{
+  transition-duration: .25s;
+  background-color: #C10000;
 }
