@@ -9,6 +9,7 @@ $.get("https://arkiver.com/api/me", function(resp){
 
 Login is done
 */
+var _ = require('underscore');
 var Backbone = require('backbone');
 var $ = require('jquery');
 var User = Backbone.Model.extend({
@@ -33,13 +34,7 @@ var User = Backbone.Model.extend({
       localStorage["user_token"] = resp.authentication_token
       localStorage["user_email"] = email
 
-      $.ajaxSetup({
-        headers : {
-          "Authorization": "Token token=" + resp.authentication_token,
-          "Accept": "application/json,version=2",
-          "Content-Type": "application/json"
-        }
-      });
+    
     }).success(function() {
       callbacks.success();
     }).fail(function() {
