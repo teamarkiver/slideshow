@@ -1,46 +1,59 @@
 var React = require('react');
 var User = require('../models/user').User;
-var SlideShowerCollection = require('../models/slideshow').SlideShowerCollection;
+var SlideShowCollection = require('../models/slideshow').SlideShowCollection;
 var $ = require('jquery');
 
 var SlideListComponent = React.createClass({
   getInitialState: function(){
-    return {slideDisplay: [] };
+    return {slideShowCollection: [] };
   },
   componentWillMount: function(){
     var self = this;
-    var slideDisplay = new SlideShowerCollection();
-    slideDisplay.fetch().done(function(){
-      self.setState({'slideDisplay': slideDisplay})
+    var slideShowCollection = new SlideShowCollection();
+    slideShowCollection.fetch().done(function(){
+      self.setState({'slideShowCollection': slideShowCollection})
     });
   },
+  handleOnSubmit: function(e){
+    e.preventDefault();
+    var create = $('.create').val();
+    var router = this.props.router;
+    router.navigate('slide/create', {trigger: true});
+  },
   render: function(){
-    var slideDisplayList = this.state.slideDisplay.map(function(slideShow){
-      return ( <li className="slideshow-item">
+    var slideDisplayList = this.state.slideShowCollection.map(function(slideShow, index){
+      return ( <li className="slideshow-item" key={index}>
 
-        <div className="slideshow-name">{slideShow.get('title')}</div>
-          <div className="slideshow-actions">
-            <div className="delete"><button className="btn btn-danger">Delete</button></div>
-            <div className="edit"><button className="btn btn-primary">Edit</button></div>
-            <div className="view"><button className="btn btn-success">View</button></div>
+        <h3 className="slideshow-name pull-left">{slideShow.get('title')}</h3>
+
+          <div className="slideshow-actions pull-right">
+            <button className="delete btn btn-danger">Delete</button>
+            <button className="edit btn btn-primary">Edit</button>
+            <button className="view btn btn-success">View</button>
           </div>
-        </li>
+          <div className="clearfix"></div></li>
+
       )
     });
 
     return(
-      <div className="slider-main">
+      <div className="slider-main fluid">
+
         <div className="row">
             <div className="col-xs-11 col-xs-offset-1">
-              <h1 className="title-slide">Slide Show <span className="title-author">by Arkiver</span></h1>
+              <h3 className="title-slide">Slide Show <span className="title-author">by Arkiver</span></h3>
             </div>
         </div>
           <div className="slid row">
             <div className="slide-container col-xs-11 col-xs-offset-1">
+              <ul className="list-group">
               {slideDisplayList}
+              </ul>
             </div>
-              <div className="col-xs-8 col-xs-offset-4">
-                <button className="btn btn-success">Create</button>
+              <div className="col-xs-7 col-xs-offset-5">
+                <form onSubmit={this.handleOnSubmit}>
+                  <button type="submit" className="create btn btn-success">Create</button>
+                </form>
               </div>
           </div>
       </div>
