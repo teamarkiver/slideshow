@@ -5,6 +5,8 @@ $icon-font-path: '../../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
 // Import Bootstrap
 @import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
 
+// Import ViewerJS
+@import '../../node_modules/viewerjs/dist/viewer.min.css';
 
 *,
 *::before,
@@ -181,6 +183,28 @@ img {
   font-color: green;
 }
 //Create/Edit screen
+.create-title{
+  border: 1px solid #ddd;
+  width: 237px;
+  font-size: 14px;
+  margin-top: 15px;
+  line-height: 20px;
+  height: 34px;
+  border-radius: 3px;
+  padding-left: 7px;
+
+}
+.create-description{
+  display: block;
+  border: 1px solid #ddd;
+  width: 237px;
+  font-size: 14px;
+  margin-bottom: 7px;
+  line-height: 20px;
+  height: 34px;
+  border-radius: 3px;
+  padding-left: 7px;
+}
 .save{
   background-color: #F37676;
   width: 150px;

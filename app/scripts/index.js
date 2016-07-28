@@ -15,5 +15,6 @@ $.ajaxSetup({
 
 $(function(){
   console.log('start app');
+  Backbone.emulateHTTP = true;
   Backbone.history.start();
 });

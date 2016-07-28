@@ -3,6 +3,9 @@ var $ = require('jquery');
 
 var Moment = Backbone.Model.extend({
     urlRoot: 'https://arkiver.com/api/slideshow_moments',
+    defaults: {
+      selected: false
+    },
     getHeight: function() {
       return this.get("meta").height
     },
@@ -15,11 +18,9 @@ var Moment = Backbone.Model.extend({
     },
     getThumbHeight: function() {
       return this.getHeight()*this.getThumbWidth()/this.getWidth()
-    },
-    imageSelected: function(){
-      return false;
     }
 });
+
 
 var MomentCollection = Backbone.Collection.extend({
     model: Moment,
@@ -30,4 +31,4 @@ var MomentCollection = Backbone.Collection.extend({
 module.exports = {
   'Moment': Moment,
   'MomentCollection': MomentCollection
-}
+};

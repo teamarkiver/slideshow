@@ -1,7 +1,9 @@
 var Backbone = require('backbone');
-var $ = require('jquery');
 
 var SlideShow = Backbone.Model.extend({
+  defaults: {
+    moments: []
+  },
   urlRoot: 'https://arkiver.com/api/slideshows'
 });
 

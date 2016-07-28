@@ -14,22 +14,38 @@ var SlideListComponent = React.createClass({
       self.setState({'slideShowCollection': slideShowCollection})
     });
   },
+  handleDelete: function (slideShow){
+    console.log("slideshow is ", slideShow);
+    this.state.slideShowCollection.remove(slideShow);
+    console.log("this.state.slideShowCollection is ", this.state.slideShowCollection);
+    slideShow.destroy();
+    this.forceUpdate();
+
+  },
   handleOnSubmit: function(e){
     e.preventDefault();
     var create = $('.create').val();
     var router = this.props.router;
     router.navigate('slide/create', {trigger: true});
   },
+  // handleView: function(e){
+  //   e.preventDefault();
+  //   var self = this;
+  //   var view = $('.view').val();
+  //   var router = this.props.router;
+  //   router.navigate('view/show', {trigger: true});
+  // },
   render: function(){
+    var self = this;
     var slideDisplayList = this.state.slideShowCollection.map(function(slideShow, index){
       return ( <li className="slideshow-item" key={index}>
 
         <h3 className="slideshow-name pull-left">{slideShow.get('title')}</h3>
 
           <div className="slideshow-actions pull-right">
-            <button className="delete btn btn-danger">Delete</button>
+            <button onClick={function(){self.handleDelete(slideShow)} } className="delete btn btn-danger">Delete</button>
             <button className="edit btn btn-primary">Edit</button>
-            <button className="view btn btn-success">View</button>
+            <a href={"#view/show/" + slideShow.get('id')} className="view btn btn-success">View</a>
           </div>
           <div className="clearfix"></div></li>
 
