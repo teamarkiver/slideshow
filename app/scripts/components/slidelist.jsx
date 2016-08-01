@@ -44,8 +44,8 @@ var SlideListComponent = React.createClass({
 
           <div className="slideshow-actions pull-right">
             <button onClick={function(){self.handleDelete(slideShow)} } className="delete btn btn-danger">Delete</button>
-            <button className="edit btn btn-primary">Edit</button>
-            <a href={"#view/show/" + slideShow.get('id')} className="view btn btn-success">View</a>
+            <a href={"#slide/" + slideShow.get('id') + '/edit'} className="edit btn btn-primary">Edit</a>
+            <a href={"#slide/" + slideShow.get('id')} className="view btn btn-success">View</a>
           </div>
           <div className="clearfix"></div></li>
 

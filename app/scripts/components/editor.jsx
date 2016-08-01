@@ -8,22 +8,46 @@ var Moment = require('../models/moment').Moment;
 var SlideShow = require('../models/slideshow').SlideShow;
 
 
-var CreateShowComponent = React.createClass({
+var CreateUpdateShowComponent = React.createClass({
   getInitialState: function(){
-    return {momentCollection: [], moment: [] };
+    return {
+      momentCollection: [],
+      moment: [],
+      'slideshow': new SlideShow()
+    };
   },
   componentWillMount: function(){
     var self = this;
     var momentCollection = new MomentCollection();
+    var slideshow = this.state.slideshow;
+
     momentCollection.fetch().done(function(){
       self.setState({'momentCollection': momentCollection})
+
+      if(self.props.slideshowId){
+        slideshow.set('id', self.props.slideshowId);
+
+        slideshow.fetch().done(function(){
+          var slideshowIds = slideshow.get("moments").map(function(moment){return moment.id})
+          momentCollection.determineMomentSelectedState(slideshowIds)
+          console.log("momentCollection is ", momentCollection);
+          self.setState({
+            'slideshow': slideshow,
+            'title': slideshow.get('title'),
+            'description': slideshow.get('description'),
+          });
+
+        });
+      }
     });
+
   },
   handleChange: function(moment){
     var self = this;
-    console.log(moment);
+    console.log("moment is",moment);
     var isSelected = moment.get('selected');
     moment.set("selected", !isSelected);
+    // re-render here
   },
   handleTitleChange: function(e){
     this.setState({'title': e.target.value});
@@ -36,35 +60,45 @@ var CreateShowComponent = React.createClass({
     var self = this;
     // Build an array of the selected image ids
     var selectedMoments = _.pluck(this.state.momentCollection.where({selected: true}), 'id');
-    console.log(this.state.description);
+    console.log("selectedMoments are ", selectedMoments);
     // Create new slideshow
-    var slideshow = new SlideShow();
 
+    var slideshow = this.state.slideshow;
     slideshow.set({
       'title': this.state.title,
       'description': this.state.description,
-      'moment_ids': selectedMoments
+      'moment_ids': selectedMoments,
     });
 
     slideshow.save().then(function(resp){
-      self.props.router.navigate('slide/list', {trigger: true});
-      slideshow.fetch();
+      console.log("response after save is ", resp);
+      self.props.router.navigate('slide', {trigger: true});
       console.log(slideshow);
     })
   },
+  handleSelectedState: function(moment, e){
+    moment.set("selected", !moment.get("selected"))
+    console.log("moment selected state is toggled to:", moment.get("selected"));
+    this.forceUpdate();
+  },
+
   render: function(){
+    console.log(this.state.slideshow);
     var self = this;
+
     var momentListDisplay = this.state.momentCollection.map(function(moment, index){
-      console.log("thumb width and height", moment.getThumbHeight(), moment.getThumbWidth())
       return (
-        <li className="image-thumb col-xs-2" data-moment-id={moment.get("id")} key={index}>
-          <label  htmlFor={index}>
-            <input onChange={function(){ self.handleChange(moment) }} id={index} type="checkbox" />
-            <img  width={moment.getThumbWidth()} height={moment.getThumbHeight()} src={moment.get("dropbox_path")}></img>
+        <li className={"image-thumb col-xs-2 " + (moment.get('selected') ? 'active' : '')}  data-moment-id={moment.get("id")} onClick={function(){ self.handleSelectedState(moment) }} key={index}>
+          <label className="image-holder"  htmlFor={index}>
+            <div className="select-indicator">
+              <div className={moment.get("selected") ? "active-indicator active" : "active-indicator"}></div>
+            </div>
+            <img className={moment.get("selected") ? "slideshow-image selected" : "slideshow-image"}  width={moment.getThumbWidth()} height={moment.getThumbHeight()} src={moment.get("dropbox_path")}></img>
           </label>
         </li>
       )
     });
+    // <input checked={moment.get("selected")} onChange={function(){ self.handleChange(moment) }} id={index} type="checkbox" />
     return (
       <div>
         <header className="banner row">
@@ -77,8 +111,8 @@ var CreateShowComponent = React.createClass({
         </div>
         <div className="slid row">
             <div className="col-xs-11 col-xs-offset-1">
-                <input onChange={this.handleTitleChange}  className="create-title"  type="text" name="title" placeholder="Title" />
-                <input onChange={this.handleDescriptionChange} className="create-description" type="text" name="description" placeholder="Description" />
+                <input onChange={this.handleTitleChange} value={this.state.title}  className="create-title"  type="text" name="title" placeholder="Title" />
+                <input onChange={this.handleDescriptionChange} value={this.state.description} className="create-description" type="text" name="description" placeholder="Description" />
           </div>
           <div className="slide-container col-xs-11 col-xs-offset-1">
             {momentListDisplay}
@@ -94,5 +128,5 @@ var CreateShowComponent = React.createClass({
 
 
 module.exports = {
-  'CreateShowComponent': CreateShowComponent
+  'CreateUpdateShowComponent': CreateUpdateShowComponent
 }

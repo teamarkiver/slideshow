@@ -5,7 +5,7 @@ var $ = require('jquery');
 
 var UserLoginComponent = require('./components/login.jsx').UserLoginComponent;
 var SlideListComponent = require('./components/slidelist.jsx').SlideListComponent;
-var CreateShowComponent = require('./components/editor.jsx').CreateShowComponent;
+var CreateUpdateShowComponent = require('./components/editor.jsx').CreateUpdateShowComponent;
 var ViewSlideShowComponent = require('./components/showview.jsx').ViewSlideShowComponent;
 
 function userIsLoggedIn(){
@@ -19,9 +19,12 @@ function userIsLoggedIn(){
 var Router = Backbone.Router.extend({
     routes: {
         '': 'login',
-        'slide/list': 'slidelist',
-        'view/show/:id': 'viewer',
-        'slide/create': 'createshow'
+        'slide': 'slideList',
+        'slide/create': 'createShow',
+        'slide/:id/edit': 'slideEdit',
+        'slide/:id': 'viewer'
+
+
     },
     execute: function(routeMethod, args) {
       if (userIsLoggedIn()) {
@@ -51,15 +54,21 @@ var Router = Backbone.Router.extend({
         document.getElementById('container')
       );
     },
-    slidelist: function(){
+    slideList: function(){
       ReactDOM.render(
         React.createElement(SlideListComponent, {router: this}),
         document.getElementById('container')
       );
     },
-    createshow: function(){
+    createShow: function(){
       ReactDOM.render(
-        React.createElement(CreateShowComponent, {router: this}),
+        React.createElement(CreateUpdateShowComponent, {router: this}),
+        document.getElementById('container')
+      );
+    },
+    slideEdit: function(slideshowId){
+      ReactDOM.render(
+        React.createElement(CreateUpdateShowComponent, {router: this, slideshowId: slideshowId}),
         document.getElementById('container')
       );
     },

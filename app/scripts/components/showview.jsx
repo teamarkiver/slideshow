@@ -40,7 +40,7 @@ var ViewSlideShowComponent = React.createClass({
   render: function(){
     var imageList = this.state.slideshow.get('moments').map(function(moment){
       return(
-        <li key={moment.id}>
+        <li className="hidden" key={moment.id}>
           <img src={moment.dropbox_path} />
         </li>
       )

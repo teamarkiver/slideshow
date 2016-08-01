@@ -23,6 +23,8 @@ img {
   padding-left: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
+  background: rgba(249,251,250,.98);
+  height: 800px;
 }
 //Header
 .banner{
@@ -141,14 +143,50 @@ img {
 // Slide list
 .slideshow-item{
   list-style: none;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid #f0f1f0;
 }
 .slideshow-name{
   text-transform: capitalize;
 }
 // Images
+
+
 .image-thumb{
   display: inline-block;
+  box-shadow: none;
+  margin: 5px;
+
+  .select-indicator {
+    background: white;
+    border: 1px solid  #abadac;
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    position: absolute;
+    top: -4px;
+    right: -4px;
+
+    .active-indicator {
+      background: #4eab79;
+      width: 20px;
+      height: 20px;
+      border-radius: 25px;
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      display: none;
+    }
+  }
+
+  &.active .active-indicator{
+    display: block;
+  }
+
+  &.active{
+    box-shadow: none;
+    box-shadow: 5px 4px 5px -3px #4eab79,-5px -4px 5px -3px #4eab79,-5px 4px 5px -3px #4eab79;
+  }
+
 }
 //Buttons
 .slideshow-actions{

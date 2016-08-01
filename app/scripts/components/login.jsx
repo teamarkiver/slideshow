@@ -11,7 +11,7 @@ var UserLoginComponent = React.createClass({
     user.login(email, password,{
       success: function(user){
         console.log(user);
-        router.navigate('slide/list', {trigger: true});
+        router.navigate('slide', {trigger: true});
       },
       error: function(user, error){
         console.log(user, error);
@@ -26,7 +26,7 @@ var UserLoginComponent = React.createClass({
         </header>
 
         <div className="logmein row">
-          <div className="login-complete col-xs-9 col-xs-offset-3">
+          <div className="login-complete col-xs-7 col-xs-offset-5">
             <form onSubmit={this.handleLogIn} className="navbar-form" id="login-user">
               <input type="text" className="log-email" placeholder="Email"></input>
               <input type="password" className="log-password" placeholder="Password"></input>
