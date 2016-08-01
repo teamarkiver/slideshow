@@ -44,7 +44,7 @@
     "favicon": "cp app/favicon.ico dist/",
 
     "build:css": "npm run scss && npm run autoprefixer",
-    "build:js": "npm run lint && npm run browserify",
+    "build:js": "npm run browserify",
     "build:images": "npm run imagemin && npm run favicon",
     "build": "npm run html && npm run build:css && npm run build:js && npm run build:images",
 
