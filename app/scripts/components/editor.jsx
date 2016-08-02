@@ -42,6 +42,19 @@ var CreateUpdateShowComponent = React.createClass({
     });
 
   },
+  componentDidMount: function(){
+    SC.initialize({
+      client_id: '385569c7d665b0e5a16779f44870a89b',
+      redirect_uri: 'https://rhc912.github.io/final-project-soundcloud/callback.html'
+    });
+
+    // initiate auth popup
+    SC.connect().then(function() {
+      return SC.get('/me');
+    }).then(function(me) {
+      alert('Hello, ' + me.username);
+    });
+  },
   handleChange: function(moment){
     var self = this;
     console.log("moment is",moment);
@@ -114,6 +127,7 @@ var CreateUpdateShowComponent = React.createClass({
           </div>
           <div className="col-xs-7 col-xs-offset-5">
             <button onClick={this.handleSave} type="submit" className="save btn btn-danger">Save</button>
+
           </div>
         </div>
       </div>
