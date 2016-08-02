@@ -75,7 +75,7 @@ var CreateUpdateShowComponent = React.createClass({
     var selectedMoments = _.pluck(this.state.momentCollection.where({selected: true}), 'id');
     console.log("selectedMoments are ", selectedMoments);
     // Create new slideshow
-
+    
     var slideshow = this.state.slideshow;
     slideshow.set({
       'title': this.state.title,
@@ -127,7 +127,6 @@ var CreateUpdateShowComponent = React.createClass({
           </div>
           <div className="col-xs-7 col-xs-offset-5">
             <button onClick={this.handleSave} type="submit" className="save btn btn-danger">Save</button>
-
           </div>
         </div>
       </div>
