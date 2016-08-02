@@ -88,7 +88,7 @@ var CreateUpdateShowComponent = React.createClass({
 
     var momentListDisplay = this.state.momentCollection.map(function(moment, index){
       return (
-        <li className={"image-thumb" + (moment.get('selected') ? 'active' : '')}  data-moment-id={moment.get("id")} onClick={function(){ self.handleSelectedState(moment) }} key={index}>
+        <li className={"image-thumb " + (moment.get('selected') ? 'active' : '')}  data-moment-id={moment.get("id")} onClick={function(){ self.handleSelectedState(moment) }} key={index}>
           <label className="image-holder"  htmlFor={index}>
             <div className="select-indicator">
               <div className={moment.get("selected") ? "active-indicator active" : "active-indicator"}></div>
