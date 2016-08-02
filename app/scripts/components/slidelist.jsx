@@ -40,7 +40,7 @@ var SlideListComponent = React.createClass({
     var slideDisplayList = this.state.slideShowCollection.map(function(slideShow, index){
       return ( <li className="slideshow-item" key={index}>
 
-        <h3 className="slideshow-name pull-left">{slideShow.get('title')}</h3>
+        <span className="slideshow-name pull-left">{slideShow.get('title')}</span>
 
           <div className="slideshow-actions pull-right">
             <button onClick={function(){self.handleDelete(slideShow)} } className="delete btn btn-danger">Delete</button>
@@ -56,12 +56,13 @@ var SlideListComponent = React.createClass({
       <div className="slider-main fluid">
 
         <div className="row">
-            <div className="col-xs-11 col-xs-offset-1">
-              <h3 className="title-slide">Slide Show <span className="title-author">by Arkiver</span></h3>
+            <div>
+            <h3 className="title-slide">Slide Show <span className="title-author">by Arkiver</span></h3>
             </div>
+            <span className="back-link"><a className="back-link-second" href="http://arkiver.com">Back</a></span>
         </div>
           <div className="slid row">
-            <div className="slide-container col-xs-11 col-xs-offset-1">
+            <div className="slide-container col-xs-10 col-xs-offset-2">
               <ul className="list-group">
               {slideDisplayList}
               </ul>

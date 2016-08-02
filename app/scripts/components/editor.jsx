@@ -101,20 +101,15 @@ var CreateUpdateShowComponent = React.createClass({
     // <input checked={moment.get("selected")} onChange={function(){ self.handleChange(moment) }} id={index} type="checkbox" />
     return (
       <div>
-        <header className="banner row">
-          <div className="logo col-xs-7 col-xs-offset-5"><img src="./images/arkiver-black-logo.png"></img></div>
-        </header>
+
         <div className="row">
-            <div className="col-xs-11 col-xs-offset-1">
-              <h3 className="title-slide">Create Slide Show</h3>
-            </div>
+
         </div>
         <div className="slid row">
-            <div className="col-xs-11 col-xs-offset-1">
-                <input onChange={this.handleTitleChange} value={this.state.title}  className="create-title"  type="text" name="title" placeholder="Title" />
-                <input onChange={this.handleDescriptionChange} value={this.state.description} className="create-description" type="text" name="description" placeholder="Description" />
+            <div className="col-xs-7 col-xs-offset-5">
+                <input onChange={this.handleTitleChange} value={this.state.title}  className="create-title"  type="text" name="title" placeholder="Create SlideShow Title" />
           </div>
-          <div className="slide-container col-xs-11 col-xs-offset-1">
+          <div className="slide-second-container col-xs-11 col-xs-offset-1">
             {momentListDisplay}
           </div>
           <div className="col-xs-7 col-xs-offset-5">
