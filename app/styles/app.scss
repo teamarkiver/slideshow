@@ -295,7 +295,7 @@ img {
   border: 1px solid #ddd;
   width: 265px;
   font-size: 28px;
-  font-family: 'Lobster', cursive;
+  font-family: 'ff-tisa-sans-web-pro';
   margin-bottom: 15px;
   margin-top: 15px;
   line-height: 20px;
@@ -316,6 +316,12 @@ img {
   padding-left: 7px;
 }
 .save{
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  height: 50px;
+  background-color: rgba(249,251,250,.98);
   font-family: 'ff-tisa-sans-web-pro';
   background-color: #F37676;
   width: 150px;
