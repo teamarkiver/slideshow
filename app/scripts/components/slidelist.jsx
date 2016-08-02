@@ -59,6 +59,7 @@ var SlideListComponent = React.createClass({
             <div>
             <h3 className="title-slide">Slide Show <span className="title-author">by Arkiver</span></h3>
             </div>
+
             <span className="back-link"><a className="back-link-second" href="http://arkiver.com">Back</a></span>
         </div>
           <div className="slid row">

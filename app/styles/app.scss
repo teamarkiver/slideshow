@@ -13,6 +13,9 @@ $icon-font-path: '../../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
 *::after {
   box-sizing: border-box;
 }
+body, span{
+  font-family: 'ff-tisa-sans-web-pro';
+}
 
 img {
   max-width: 100%;
@@ -37,7 +40,6 @@ img {
   margin-top: 100px;
 }
 .login-title{
-  font-family: 'Lobster', cursive;
   font-size: 40px;
   color: #5a5c5b;
   text-align: center;
@@ -149,7 +151,6 @@ img {
   background-color: white
 }
 .title-slide{
-  font-family: 'Lobster', cursive;
   font-size: 40px;
   color: #5a5c5b;
   text-align: center;
@@ -187,11 +188,16 @@ img {
 
 
 .image-thumb{
+  label{
+    margin-bottom: 0px;
+  }
   display: inline-block;
   box-shadow: none;
   position: relative;
   margin: 5px;
   padding: 0;
+  margin-right: 15px;
+  margin-bottom: 15px;
 
   .select-indicator {
     background: white;

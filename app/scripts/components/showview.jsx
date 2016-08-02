@@ -18,15 +18,24 @@ var ViewSlideShowComponent = React.createClass({
   },
   componentWillMount: function(){
     var self = this;
+    var router = this.props.router;
     var slideshow = this.state.slideshow;
     slideshow.set('id', this.props.slideshowId);
 
     slideshow.fetch().done(function(){
       console.log(slideshow);
       self.setState({'slideshow': slideshow})
-      var viewer = new Viewer(document.getElementById('slideshow'), {button: true});
+      var viewer = new Viewer(document.getElementById('slideshow'),
+      {
+        button: true,
+        hide:function(){
+          console.log("hide event fired");
+          router.navigate('slide', {trigger: true});
+        }
+      })
       viewer.show()
       viewer.play()
+
 
 
     });

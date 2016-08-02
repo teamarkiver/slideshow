@@ -27,6 +27,7 @@ var Router = Backbone.Router.extend({
 
     },
     execute: function(routeMethod, args) {
+      $(window).scrollTop(0,0) // something like this
       if (userIsLoggedIn()) {
 
         $.ajaxPrefilter(function( options, originalOptions, jqXHR ) {

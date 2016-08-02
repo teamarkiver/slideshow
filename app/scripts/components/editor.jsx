@@ -1,6 +1,7 @@
 var _ = require('underscore');
 var React = require('react');
 var $ = require('jquery');
+var Masonry = require('masonry-layout');
 
 var User = require('../models/user').User;
 var MomentCollection = require('../models/moment').MomentCollection;
@@ -23,7 +24,12 @@ var CreateUpdateShowComponent = React.createClass({
 
     momentCollection.fetch().done(function(){
       self.setState({'momentCollection': momentCollection})
+      var elem = document.querySelector('.slide-second-container');
+      var msnry = new Masonry( elem, {
+        // options
+        itemSelector: '.image-thumb',
 
+      });
       if(self.props.slideshowId){
         slideshow.set('id', self.props.slideshowId);
 
