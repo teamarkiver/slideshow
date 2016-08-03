@@ -18,15 +18,24 @@ var ViewSlideShowComponent = React.createClass({
   },
   componentWillMount: function(){
     var self = this;
+    var router = this.props.router;
     var slideshow = this.state.slideshow;
     slideshow.set('id', this.props.slideshowId);
 
     slideshow.fetch().done(function(){
       console.log(slideshow);
       self.setState({'slideshow': slideshow})
-      var viewer = new Viewer(document.getElementById('slideshow'), {button: true});
+      var viewer = new Viewer(document.getElementById('slideshow'),
+      {
+        button: true,
+        hide:function(){
+          console.log("hide event fired");
+          router.navigate('slide', {trigger: true});
+        }
+      })
       viewer.show()
       viewer.play()
+
 
 
     });
@@ -47,11 +56,9 @@ var ViewSlideShowComponent = React.createClass({
     })
     return (
       <div>
-        <header className="banner row">
-          <div className="logo col-xs-7 col-xs-offset-5"><img src="./images/arkiver-black-logo.png"></img></div>
-        </header>
 
-        <div className="slide-container col-xs-11 col-xs-offset-1">
+
+        <div className="slide-container col-md-11 col-md-offset-1">
           <ul id="slideshow">
             {imageList}
           </ul>

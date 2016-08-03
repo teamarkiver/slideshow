@@ -1,6 +1,7 @@
 var _ = require('underscore');
 var React = require('react');
 var $ = require('jquery');
+var Masonry = require('masonry-layout');
 
 var User = require('../models/user').User;
 var MomentCollection = require('../models/moment').MomentCollection;
@@ -24,7 +25,12 @@ var CreateUpdateShowComponent = React.createClass({
 
     momentCollection.fetch().done(function(){
       self.setState({'momentCollection': momentCollection})
+      var elem = document.querySelector('.slide-second-container');
+      var msnry = new Masonry( elem, {
+        // options
+        itemSelector: '.image-thumb',
 
+      });
       if(self.props.slideshowId){
         slideshow.set('id', self.props.slideshowId);
 
@@ -103,7 +109,7 @@ var CreateUpdateShowComponent = React.createClass({
 
     var momentListDisplay = this.state.momentCollection.map(function(moment, index){
       return (
-        <li className={"image-thumb col-xs-2 " + (moment.get('selected') ? 'active' : '')}  data-moment-id={moment.get("id")} onClick={function(){ self.handleSelectedState(moment) }} key={index}>
+        <li className={"image-thumb " + (moment.get('selected') ? 'active' : '')}  data-moment-id={moment.get("id")} onClick={function(){ self.handleSelectedState(moment) }} key={index}>
           <label className="image-holder"  htmlFor={index}>
             <div className="select-indicator">
               <div className={moment.get("selected") ? "active-indicator active" : "active-indicator"}></div>
@@ -113,7 +119,6 @@ var CreateUpdateShowComponent = React.createClass({
         </li>
       )
     });
-    // <input checked={moment.get("selected")} onChange={function(){ self.handleChange(moment) }} id={index} type="checkbox" />
     return (
       <div>
 
@@ -121,15 +126,15 @@ var CreateUpdateShowComponent = React.createClass({
 
         </div>
         <div className="slid row">
-            <div className="col-xs-7 col-xs-offset-5">
-                <input onChange={this.handleTitleChange} value={this.state.title}  className="create-title"  type="text" name="title" placeholder="Create SlideShow Title" />
+            <div className="col-md-7 col-md-offset-5">
+                <input onChange={this.handleTitleChange} value={this.state.title}  className="create-title"  type="text" name="title" placeholder="Enter Title" />
           </div>
-          <div className="slide-second-container col-xs-11 col-xs-offset-1">
+          <div className="slide-second-container col-md-10 col-md-offset-2">
             {momentListDisplay}
           </div>
-          <div className="col-xs-7 col-xs-offset-5">
-            <button onClick={this.handleSave} type="submit" className="save btn btn-danger">Save</button>
-          </div>
+          <footer className="row">
+            <button onClick={this.handleSave} type="submit" className="save btn btn-danger col-xs-offset-5 col-md-3">Save</button>
+          </footer>
         </div>
       </div>
     )

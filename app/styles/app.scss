@@ -6,12 +6,15 @@ $icon-font-path: '../../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
 @import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
 
 // Import ViewerJS
-@import '../../node_modules/viewerjs/dist/viewer.min.css';
+@import '../../node_modules/viewerjs/src/scss/viewer.scss';
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+}
+body, span{
+  font-family: 'ff-tisa-sans-web-pro';
 }
 
 img {
@@ -37,7 +40,6 @@ img {
   margin-top: 100px;
 }
 .login-title{
-  font-family: 'Lobster', cursive;
   font-size: 40px;
   color: #5a5c5b;
   text-align: center;
@@ -143,13 +145,12 @@ img {
   background-color: white;
 }
 .slide-second-container{
-  width: 1100px;
+  width: 960px;
   border: 1px solid #f0f1f0;
   border-radius: 4px;
   background-color: white
 }
 .title-slide{
-  font-family: 'Lobster', cursive;
   font-size: 40px;
   color: #5a5c5b;
   text-align: center;
@@ -187,10 +188,16 @@ img {
 
 
 .image-thumb{
+  label{
+    margin-bottom: 0px;
+  }
   display: inline-block;
   box-shadow: none;
+  position: relative;
   margin: 5px;
   padding: 0;
+  margin-right: 15px;
+  margin-bottom: 15px;
 
   .select-indicator {
     background: white;
@@ -269,6 +276,7 @@ img {
 .create{
   font-family: 'ff-tisa-sans-web-pro';
   margin-top: 20px;
+  margin-bottom: 10px;
   width: 150px;
   font-size: 18px;
   background-color: rgb(209,229,219);
@@ -286,9 +294,9 @@ img {
 //Create/Edit screen
 .create-title{
   border: 1px solid #ddd;
-  width: 265px;
+  width: 341px;
   font-size: 28px;
-  font-family: 'Lobster', cursive;
+  font-family: 'ff-tisa-sans-web-pro';
   margin-bottom: 15px;
   margin-top: 15px;
   line-height: 20px;
@@ -309,6 +317,12 @@ img {
   padding-left: 7px;
 }
 .save{
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  height: 50px;
+  background-color: rgba(249,251,250,.98);
   font-family: 'ff-tisa-sans-web-pro';
   background-color: #F37676;
   width: 150px;
@@ -320,4 +334,32 @@ img {
   font-family: 'ff-tisa-sans-web-pro';
   transition-duration: .25s;
   background-color: #C10000;
+}
+// Viewer Plug in
+.viewer-toolbar{
+  margin-left: 595px;
+}
+.viewer-zoom-in{
+  display: none;
+}
+.viewer-zoom-out{
+  display: none;
+}
+.viewer-one-to-one{
+  display: none;
+}
+.viewer-reset{
+  display: none;
+}
+.viewer-rotate-left{
+  display: none;
+}
+.viewer-rotate-right{
+  display: none;
+}
+.viewer-flip-horizontal{
+  display: none;
+}
+.viewer-flip-vertical{
+  display: none;
 }

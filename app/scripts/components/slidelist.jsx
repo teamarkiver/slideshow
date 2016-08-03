@@ -59,19 +59,21 @@ var SlideListComponent = React.createClass({
             <div>
             <h3 className="title-slide">Slide Show <span className="title-author">by Arkiver</span></h3>
             </div>
+
             <span className="back-link"><a className="back-link-second" href="http://arkiver.com">Back</a></span>
         </div>
           <div className="slid row">
-            <div className="slide-container col-xs-10 col-xs-offset-2">
+            <div className="col-md-7 col-md-offset-5">
+              <form onSubmit={this.handleOnSubmit}>
+                <button type="submit" className="create btn btn-success">Create</button>
+              </form>
+            </div>
+            <div className="slide-container col-md-10 col-md-offset-2">
               <ul className="list-group">
               {slideDisplayList}
               </ul>
             </div>
-              <div className="col-xs-7 col-xs-offset-5">
-                <form onSubmit={this.handleOnSubmit}>
-                  <button type="submit" className="create btn btn-success">Create</button>
-                </form>
-              </div>
+
           </div>
       </div>
     )
