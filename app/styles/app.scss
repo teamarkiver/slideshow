@@ -145,7 +145,7 @@ img {
   background-color: white;
 }
 .slide-second-container{
-  width: 1100px;
+  width: 960px;
   border: 1px solid #f0f1f0;
   border-radius: 4px;
   background-color: white
@@ -276,6 +276,7 @@ img {
 .create{
   font-family: 'ff-tisa-sans-web-pro';
   margin-top: 20px;
+  margin-bottom: 10px;
   width: 150px;
   font-size: 18px;
   background-color: rgb(209,229,219);
@@ -293,7 +294,7 @@ img {
 //Create/Edit screen
 .create-title{
   border: 1px solid #ddd;
-  width: 265px;
+  width: 341px;
   font-size: 28px;
   font-family: 'ff-tisa-sans-web-pro';
   margin-bottom: 15px;
@@ -333,4 +334,32 @@ img {
   font-family: 'ff-tisa-sans-web-pro';
   transition-duration: .25s;
   background-color: #C10000;
+}
+// Viewer Plug in
+.viewer-toolbar{
+  margin-left: 595px;
+}
+.viewer-zoom-in{
+  display: none;
+}
+.viewer-zoom-out{
+  display: none;
+}
+.viewer-one-to-one{
+  display: none;
+}
+.viewer-reset{
+  display: none;
+}
+.viewer-rotate-left{
+  display: none;
+}
+.viewer-rotate-right{
+  display: none;
+}
+.viewer-flip-horizontal{
+  display: none;
+}
+.viewer-flip-vertical{
+  display: none;
 }

@@ -26,7 +26,7 @@ var UserLoginComponent = React.createClass({
         </div>
 
         <div className="logmein row">
-          <div className="login-complete col-xs-offset-5 col-md-2">
+          <div className="login-complete col-md-offset-5 col-md-2">
             <form onSubmit={this.handleLogIn} className="navbar-form" id="login-user">
               <input type="text" className="log-email loglog" placeholder="Email"></input>
               <input type="password" className="log-password loglog" placeholder="Password"></input>

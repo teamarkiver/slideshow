@@ -56,9 +56,7 @@ var ViewSlideShowComponent = React.createClass({
     })
     return (
       <div>
-        <header className="banner row">
-          <div className="logo col-xs-7 col-xs-offset-5"><img src="./images/arkiver-black-logo.png"></img></div>
-        </header>
+        
 
         <div className="slide-container col-xs-11 col-xs-offset-1">
           <ul id="slideshow">
