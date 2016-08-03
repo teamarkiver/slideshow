@@ -21,6 +21,7 @@ var CreateUpdateShowComponent = React.createClass({
     var momentCollection = new MomentCollection();
     var slideshow = this.state.slideshow;
 
+
     momentCollection.fetch().done(function(){
       self.setState({'momentCollection': momentCollection})
 
@@ -54,6 +55,7 @@ var CreateUpdateShowComponent = React.createClass({
     }).then(function(me) {
       alert('Hello, ' + me.username);
     });
+
   },
   handleChange: function(moment){
     var self = this;
@@ -75,7 +77,7 @@ var CreateUpdateShowComponent = React.createClass({
     var selectedMoments = _.pluck(this.state.momentCollection.where({selected: true}), 'id');
     console.log("selectedMoments are ", selectedMoments);
     // Create new slideshow
-    
+
     var slideshow = this.state.slideshow;
     slideshow.set({
       'title': this.state.title,
