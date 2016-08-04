@@ -11,7 +11,7 @@ var UserLoginComponent = React.createClass({
     user.login(email, password,{
       success: function(user){
         console.log(user);
-        router.navigate('slide/list', {trigger: true});
+        router.navigate('slide', {trigger: true});
       },
       error: function(user, error){
         console.log(user, error);
@@ -20,16 +20,16 @@ var UserLoginComponent = React.createClass({
   },
   render: function(){
     return(
-      <div className="main-login">
-        <header className="banner row">
-          <div className="logo col-xs-7 col-xs-offset-5"><img src="./images/arkiver-black-logo.png"></img></div>
-        </header>
+      <div className="main-login row">
+        <div>
+          <h2 className="login-title">SlideShow</h2>
+        </div>
 
         <div className="logmein row">
-          <div className="login-complete col-xs-9 col-xs-offset-3">
+          <div className="login-complete col-md-offset-5 col-md-2">
             <form onSubmit={this.handleLogIn} className="navbar-form" id="login-user">
-              <input type="text" className="log-email" placeholder="Email"></input>
-              <input type="password" className="log-password" placeholder="Password"></input>
+              <input type="text" className="log-email loglog" placeholder="Email"></input>
+              <input type="password" className="log-password loglog" placeholder="Password"></input>
               <button className="login btn btn-success">Log In</button>
             </form>
           </div>

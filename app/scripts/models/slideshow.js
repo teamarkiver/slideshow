@@ -1,13 +1,15 @@
 var Backbone = require('backbone');
-var $ = require('jquery');
 
-var SlideShower = Backbone.Model.extend({
-  urlRoot: 'https://arkiver.com/api/slideshow_moments'
+var SlideShow = Backbone.Model.extend({
+  defaults: {
+    moments: []
+  },
+  urlRoot: 'https://arkiver.com/api/slideshows'
 });
 
-var SlideShowerCollection = Backbone.Collection.extend({
-  model: SlideShower,
-  url: 'https://arkiver.com/api/slideshow_moments',
+var SlideShowCollection = Backbone.Collection.extend({
+  model: SlideShow,
+  url: 'https://arkiver.com/api/slideshows',
   // slides: function(title, description, moment_ids){
   //
   //   var queryString = jQuery.param({'title': title, 'description': description, 'moment_ids': moment_ids});
@@ -36,6 +38,6 @@ var SlideShowerCollection = Backbone.Collection.extend({
 
 
 module.exports = {
-  'SlideShower': SlideShower,
-  'SlideShowerCollection': SlideShowerCollection
+  'SlideShow': SlideShow,
+  'SlideShowCollection': SlideShowCollection
 }

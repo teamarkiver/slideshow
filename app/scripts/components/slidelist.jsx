@@ -1,47 +1,79 @@
 var React = require('react');
 var User = require('../models/user').User;
-var SlideShowerCollection = require('../models/slideshow').SlideShowerCollection;
+var SlideShowCollection = require('../models/slideshow').SlideShowCollection;
 var $ = require('jquery');
 
 var SlideListComponent = React.createClass({
   getInitialState: function(){
-    return {slideDisplay: [] };
+    return {slideShowCollection: [] };
   },
   componentWillMount: function(){
     var self = this;
-    var slideDisplay = new SlideShowerCollection();
-    slideDisplay.fetch().done(function(){
-      self.setState({'slideDisplay': slideDisplay})
+    var slideShowCollection = new SlideShowCollection();
+    slideShowCollection.fetch().done(function(){
+      self.setState({'slideShowCollection': slideShowCollection})
     });
   },
-  render: function(){
-    var slideDisplayList = this.state.slideDisplay.map(function(slideShow){
-      return ( <li className="slideshow-item">
+  handleDelete: function (slideShow){
+    console.log("slideshow is ", slideShow);
+    this.state.slideShowCollection.remove(slideShow);
+    console.log("this.state.slideShowCollection is ", this.state.slideShowCollection);
+    slideShow.destroy();
+    this.forceUpdate();
 
-        <div className="slideshow-name">{slideShow.get('title')}</div>
-          <div className="slideshow-actions">
-            <div className="delete"><button className="btn btn-danger">Delete</button></div>
-            <div className="edit"><button className="btn btn-primary">Edit</button></div>
-            <div className="view"><button className="btn btn-success">View</button></div>
+  },
+  handleOnSubmit: function(e){
+    e.preventDefault();
+    var create = $('.create').val();
+    var router = this.props.router;
+    router.navigate('slide/create', {trigger: true});
+  },
+  // handleView: function(e){
+  //   e.preventDefault();
+  //   var self = this;
+  //   var view = $('.view').val();
+  //   var router = this.props.router;
+  //   router.navigate('view/show', {trigger: true});
+  // },
+  render: function(){
+    var self = this;
+    var slideDisplayList = this.state.slideShowCollection.map(function(slideShow, index){
+      return ( <li className="slideshow-item" key={index}>
+
+        <span className="slideshow-name pull-left">{slideShow.get('title')}</span>
+
+          <div className="slideshow-actions pull-right">
+            <button onClick={function(){self.handleDelete(slideShow)} } className="delete btn btn-danger">Delete</button>
+            <a href={"#slide/" + slideShow.get('id') + '/edit'} className="edit btn btn-primary">Edit</a>
+            <a href={"#slide/" + slideShow.get('id')} className="view btn btn-success">View</a>
           </div>
-        </li>
+          <div className="clearfix"></div></li>
+
       )
     });
 
     return(
-      <div className="slider-main">
+      <div className="slider-main fluid">
+
         <div className="row">
-            <div className="col-xs-11 col-xs-offset-1">
-              <h1 className="title-slide">Slide Show <span className="title-author">by Arkiver</span></h1>
+            <div>
+            <h3 className="title-slide">Slide Show <span className="title-author">by Arkiver</span></h3>
             </div>
+
+            <span className="back-link"><a className="back-link-second" href="http://arkiver.com">Back</a></span>
         </div>
           <div className="slid row">
-            <div className="slide-container col-xs-11 col-xs-offset-1">
-              {slideDisplayList}
+            <div className="col-md-7 col-md-offset-5">
+              <form onSubmit={this.handleOnSubmit}>
+                <button type="submit" className="create btn btn-success">Create</button>
+              </form>
             </div>
-              <div className="col-xs-8 col-xs-offset-4">
-                <button className="btn btn-success">Create</button>
-              </div>
+            <div className="slide-container col-md-10 col-md-offset-2">
+              <ul className="list-group">
+              {slideDisplayList}
+              </ul>
+            </div>
+
           </div>
       </div>
     )
