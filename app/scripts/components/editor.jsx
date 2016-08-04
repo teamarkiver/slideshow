@@ -2,6 +2,7 @@ var _ = require('underscore');
 var React = require('react');
 var $ = require('jquery');
 var Masonry = require('masonry-layout');
+var SC = require('soundcloud');
 
 var User = require('../models/user').User;
 var MomentCollection = require('../models/moment').MomentCollection;
@@ -89,6 +90,7 @@ var CreateUpdateShowComponent = React.createClass({
       'title': this.state.title,
       'description': this.state.description,
       'moment_ids': selectedMoments,
+      'track_id': this.state.track_id
     });
 
     slideshow.save().then(function(resp){
@@ -106,7 +108,6 @@ var CreateUpdateShowComponent = React.createClass({
   render: function(){
     console.log(this.state.slideshow);
     var self = this;
-
     var momentListDisplay = this.state.momentCollection.map(function(moment, index){
       return (
         <li className={"image-thumb " + (moment.get('selected') ? 'active' : '')}  data-moment-id={moment.get("id")} onClick={function(){ self.handleSelectedState(moment) }} key={index}>
@@ -135,13 +136,70 @@ var CreateUpdateShowComponent = React.createClass({
           <footer className="row">
             <button onClick={this.handleSave} type="submit" className="save btn btn-danger col-xs-offset-5 col-md-3">Save</button>
           </footer>
+          <TrackList />
         </div>
       </div>
     )
   }
 });
 
+var TrackList = React.createClass({
+
+  getInitialState() {
+    return {
+      search: "",
+      results: []
+    };
+  },
+
+  handleChange: function() {
+    this.setState({search: event.target.value});
+  },
+
+  handleSubmit: function(event) {
+    event.preventDefault();
+
+    var self = this;
+
+    SC.get('/tracks', {
+      limit: 10,
+      q: this.state.search,
+      order: 'hotness'
+    }).then(function(tracks){
+      self.setState({results: tracks});
+    });
+  },
+
+  render: function() {
+    return (
+      <div>
+        <h1>Select Track</h1>
+        <form onSubmit={this.handleSubmit}>
+          <input
+            type="search"
+            value={this.state.search}
+            onChange={this.handleChange}
+          />
+        </form>
+
+        <ul>
+          {this.state.results.map(function(result){
+            return (
+              <li key={result.id}>
+                <a href={'#tracks/' + result.id}>
+                  {result.title}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    );
+  }
+});
+
 
 module.exports = {
-  'CreateUpdateShowComponent': CreateUpdateShowComponent
+  'CreateUpdateShowComponent': CreateUpdateShowComponent,
+  'TrackList': TrackList
 }
