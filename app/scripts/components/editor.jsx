@@ -14,6 +14,7 @@ var CreateUpdateShowComponent = React.createClass({
   getInitialState: function(){
     return {
       momentCollection: [],
+      rob: "",
       moment: [],
       'slideshow': new SlideShow()
     };
@@ -80,6 +81,8 @@ var CreateUpdateShowComponent = React.createClass({
   },
   handleSave: function(){
     var self = this;
+    console.log(this.state.song)
+
     // Build an array of the selected image ids
     var selectedMoments = _.pluck(this.state.momentCollection.where({selected: true}), 'id');
     console.log("selectedMoments are ", selectedMoments);
@@ -90,7 +93,7 @@ var CreateUpdateShowComponent = React.createClass({
       'title': this.state.title,
       'description': this.state.description,
       'moment_ids': selectedMoments,
-      'track_id': this.state.track_id
+      'id': this.state.id
     });
 
     slideshow.save().then(function(resp){
@@ -136,7 +139,7 @@ var CreateUpdateShowComponent = React.createClass({
           <footer className="row">
             <button onClick={this.handleSave} type="submit" className="save btn btn-danger col-xs-offset-5 col-md-3">Save</button>
           </footer>
-          <TrackList />
+          <TrackList parent={this}/>
         </div>
       </div>
     )
@@ -152,14 +155,23 @@ var TrackList = React.createClass({
     };
   },
 
-  handleChange: function() {
+  handleChange: function(event) {
+    console.log("show it");
     this.setState({search: event.target.value});
+  },
+  handleSongSelect: function(result, e){
+    e.preventDefault();
+    var self = this;
+    // get id of LI that was clicked on
+    this.props.parent.setState({"id": e.target.value});
+    console.log("joel", result)
   },
 
   handleSubmit: function(event) {
     event.preventDefault();
 
     var self = this;
+    console.log("SEARCH STRING", this.state.search);
 
     SC.get('/tracks', {
       limit: 10,
@@ -171,6 +183,17 @@ var TrackList = React.createClass({
   },
 
   render: function() {
+    var self = this;
+    var songs = this.state.results.map(function(result){
+      return (
+        <li key={result.id}>
+          <a onClick={self.handleSongSelect.bind(self, result)}>
+            {result.title}
+          </a>
+        </li>
+      );
+    });
+
     return (
       <div className="col-md-5 col-md-offset-5">
         <h1>Select Track</h1>
@@ -181,17 +204,8 @@ var TrackList = React.createClass({
             onChange={this.handleChange}
           />
         </form>
-
         <ul>
-          {this.state.results.map(function(result){
-            return (
-              <li key={result.id}>
-                <a href={'#tracks/' + result.id}>
-                  {result.title}
-                </a>
-              </li>
-            );
-          })}
+          {songs}
         </ul>
       </div>
     );
