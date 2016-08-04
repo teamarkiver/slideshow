@@ -142,7 +142,7 @@ var CreateUpdateShowComponent = React.createClass({
 
 var TrackList = React.createClass({
 
-  getInitialState() {
+  getInitialState: function() {
     return {
       search: "",
       results: []

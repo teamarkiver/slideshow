@@ -71,17 +71,17 @@ var ViewSlideShowComponent = React.createClass({
   }
 });
 var TrackDetail = React.createClass({
-  getInitialState() {
+  getInitialState: function() {
     return {
       track: {},
     };
   },
 
-  componentWillMount() {
+  componentWillMount: function() {
     this.fetchTrack();
   },
 
-  fetchTrack() {
+  fetchTrack: function() {
     var self = this;
     var trackId = localStorage.getItem('track_id_' + this.props.slideshowId);
     console.log(trackId);
@@ -104,12 +104,12 @@ var TrackDetail = React.createClass({
     });
   },
 
-  togglePlaying() {
+  togglePlaying: function() {
     this.state.stream && this.state.stream.toggle();
     this.forceUpdate();
   },
 
-  render() {
+  render: function() {
     return (
       <div>
         <h1 className="soundcloud-title">{this.state.track.title}</h1>
