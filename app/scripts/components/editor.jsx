@@ -172,7 +172,7 @@ var TrackList = React.createClass({
 
   render: function() {
     return (
-      <div>
+      <div className="col-md-5 col-md-offset-5">
         <h1>Select Track</h1>
         <form onSubmit={this.handleSubmit}>
           <input
