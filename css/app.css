@@ -6065,27 +6065,21 @@ body, span {
 img {
   max-width: 100%; }
 
-.song-set {
-  list-style: none; }
-
 .container-fluid {
   padding-right: 0px;
   padding-left: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
   background: rgba(249, 251, 250, 0.98);
-  height: 1300px; }
+  height: 900px; }
 
 .banner {
   border-bottom: 1px solid #f0f1f0;
   padding-bottom: 8px;
   padding-top: 5px; }
 
-.align-log {
-  text-align: center; }
-
 .navbar-form {
-  margin-top: 20px; }
+  margin-top: 100px; }
 
 .login-title {
   font-size: 40px;
@@ -6185,7 +6179,6 @@ img {
 .slide-container {
   width: 960px;
   border: 1px solid #f0f1f0;
-  padding-top: 12px;
   border-radius: 4px;
   background-color: white; }
 
@@ -6227,12 +6220,6 @@ img {
   text-transform: capitalize;
   padding-top: 14px;
   font-family: 'ff-tisa-sans-web-pro'; }
-
-.soundcloud-app {
-  margin-top: 5px; }
-
-.slideshow-image {
-  width: 200px; }
 
 .image-thumb {
   display: inline-block;
@@ -6360,7 +6347,6 @@ img {
   left: 0px;
   right: 0px;
   height: 50px;
-  width: 100%;
   background-color: rgba(249, 251, 250, 0.98);
   font-family: 'ff-tisa-sans-web-pro';
   background-color: #F37676;
@@ -6373,30 +6359,6 @@ img {
   -webkit-transition-duration: .25s;
           transition-duration: .25s;
   background-color: #C10000; }
-
-.track-box {
-  width: 960px;
-  margin-top: 20px;
-  text-align: center;
-  border: 1px solid #f0f1f0;
-  background-color: white; }
-
-.select-track {
-  font-family: 'ff-tisa-sans-web-pro';
-  text-align: center; }
-
-.song-select {
-  text-align: center;
-  margin-top: 5px; }
-
-.soundcloud-title {
-  display: none; }
-
-.soundcloud-play {
-  display: none; }
-
-.soundcloud-album {
-  display: none; }
 
 .viewer-toolbar {
   margin-left: 595px; }
@@ -6424,4 +6386,5 @@ img {
 
 .viewer-flip-vertical {
   display: none; }
+
 /*# sourceMappingURL=app.css.map */
