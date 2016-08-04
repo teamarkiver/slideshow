@@ -52,17 +52,7 @@ var CreateUpdateShowComponent = React.createClass({
 
   },
   componentDidMount: function(){
-    SC.initialize({
-      client_id: '385569c7d665b0e5a16779f44870a89b',
-      redirect_uri: 'https://rhc912.github.io/final-project-soundcloud/callback.html'
-    });
 
-    // initiate auth popup
-    SC.connect().then(function() {
-      return SC.get('/me');
-    }).then(function(me) {
-      alert('Hello, ' + me.username);
-    });
 
   },
   handleChange: function(moment){
@@ -93,8 +83,11 @@ var CreateUpdateShowComponent = React.createClass({
       'title': this.state.title,
       'description': this.state.description,
       'moment_ids': selectedMoments,
-      'id': this.state.id
     });
+
+    console.log('SC track id: ', this.state.id);
+    localStorage.setItem('track_id_' + slideshow.id, this.state.id);
+
 
     slideshow.save().then(function(resp){
       console.log("response after save is ", resp);
@@ -136,10 +129,11 @@ var CreateUpdateShowComponent = React.createClass({
           <div className="slide-second-container col-md-10 col-md-offset-2">
             {momentListDisplay}
           </div>
-          <footer className="row">
-            <button onClick={this.handleSave} type="submit" className="save btn btn-danger col-xs-offset-5 col-md-3">Save</button>
-          </footer>
+
           <TrackList parent={this}/>
+        </div>
+        <div className="save-me row">
+          <button onClick={this.handleSave} type="submit" className="save btn btn-danger col-md-2 col-md-offset-6">Save</button>
         </div>
       </div>
     )
@@ -163,7 +157,8 @@ var TrackList = React.createClass({
     e.preventDefault();
     var self = this;
     // get id of LI that was clicked on
-    this.props.parent.setState({"id": e.target.value});
+    console.warn(e.target);
+    this.props.parent.setState({"id": e.target.rel});
     console.log("joel", result)
   },
 
@@ -186,8 +181,8 @@ var TrackList = React.createClass({
     var self = this;
     var songs = this.state.results.map(function(result){
       return (
-        <li key={result.id}>
-          <a onClick={self.handleSongSelect.bind(self, result)}>
+        <li className="song-set" key={result.id}>
+          <a onClick={self.handleSongSelect.bind(self, result)} rel={result.id}>
             {result.title}
           </a>
         </li>
@@ -195,9 +190,11 @@ var TrackList = React.createClass({
     });
 
     return (
-      <div className="col-md-5 col-md-offset-5">
-        <h1>Select Track</h1>
-        <form onSubmit={this.handleSubmit}>
+      <div className="track-box col-md-3 col-md-offset-2">
+      <img className="soundcloud-app" src="./images/Logo-Soundcloud.png" />  <h1 className="select-track">Select Track</h1>
+      <span>Search for a song on Soundcloud
+            and save it to your Slideshow.</span>
+        <form className="song-select" onSubmit={this.handleSubmit}>
           <input
             type="search"
             value={this.state.search}

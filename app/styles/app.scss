@@ -20,6 +20,9 @@ body, span{
 img {
   max-width: 100%;
 }
+.song-set{
+  list-style: none;
+}
 //container
 .container-fluid{
   padding-right: 0px;
@@ -27,7 +30,7 @@ img {
   padding-top: 0px;
   padding-bottom: 0px;
   background: rgba(249,251,250,.98);
-  height: 900px;
+  height: 1300px;
 }
 //Header
 .banner{
@@ -36,8 +39,11 @@ img {
   padding-top: 5px;
 }
 // login
+.align-log{
+  text-align: center;
+}
 .navbar-form{
-  margin-top: 100px;
+  margin-top: 20px;
 }
 .login-title{
   font-size: 40px;
@@ -186,8 +192,13 @@ img {
   font-family: 'ff-tisa-sans-web-pro';
 }
 // Images
+.soundcloud-app{
+  margin-top: 5px;
+}
 
-
+.slideshow-image{
+  width: 200px;
+}
 .image-thumb{
   label{
     margin-bottom: 0px;
@@ -317,12 +328,16 @@ img {
   border-radius: 3px;
   padding-left: 7px;
 }
+.save-me{
+
+}
 .save{
   position: fixed;
   bottom: 0px;
   left: 0px;
   right: 0px;
   height: 50px;
+  width: 100%;
   background-color: rgba(249,251,250,.98);
   font-family: 'ff-tisa-sans-web-pro';
   background-color: #F37676;
@@ -335,6 +350,33 @@ img {
   font-family: 'ff-tisa-sans-web-pro';
   transition-duration: .25s;
   background-color: #C10000;
+}
+// Select track
+.track-box{
+  width:960px;
+  margin-top: 20px;
+  text-align: center;
+  border: 1px solid #f0f1f0;
+  background-color: white;
+}
+.select-track{
+  font-family: 'ff-tisa-sans-web-pro';
+  text-align: center;
+}
+.song-select{
+  text-align: center;
+  margin-top: 5px;
+}
+//Soundcloud view
+.soundcloud-title{
+  display: none;
+
+}
+.soundcloud-play{
+  display: none;
+}
+.soundcloud-album{
+  display: none;
 }
 // Viewer Plug in
 .viewer-toolbar{

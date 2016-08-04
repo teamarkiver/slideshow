@@ -26,6 +26,19 @@ var Router = Backbone.Router.extend({
 
 
     },
+    initialize: function(){
+      SC.initialize({
+        client_id: '385569c7d665b0e5a16779f44870a89b',
+        redirect_uri: 'https://rhc912.github.io/final-project-soundcloud/callback.html'
+      });
+
+      // initiate auth popup
+      SC.connect().then(function() {
+        return SC.get('/me');
+      }).then(function(me) {
+        alert('Hello, ' + me.username);
+      });
+    },
     execute: function(routeMethod, args) {
       $(window).scrollTop(0,0) // something like this
       if (userIsLoggedIn()) {

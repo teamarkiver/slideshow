@@ -62,6 +62,7 @@ var ViewSlideShowComponent = React.createClass({
         <div className="slide-container col-md-11 col-md-offset-1">
           <ul id="slideshow">
             {imageList}
+            <TrackDetail slideshowId={this.props.slideshowId}/>
           </ul>
         </div>
       </div>
@@ -82,8 +83,13 @@ var TrackDetail = React.createClass({
 
   fetchTrack() {
     var self = this;
+    var trackId = localStorage.getItem('track_id_' + this.props.slideshowId);
+    console.log(trackId);
+    if(!trackId){
+      return;
+    }
 
-    SC.get('/tracks/' + this.props.id).then(function(track){
+    SC.get('/tracks/' + trackId).then(function(track){
       self.setState({ track: track });
 
       SC.oEmbed(track.uri, { auto_play: true }).then(function(oEmbed) {
@@ -106,12 +112,12 @@ var TrackDetail = React.createClass({
   render() {
     return (
       <div>
-        <h1>{this.state.track.title}</h1>
-        {<button onClick={this.togglePlaying}>
+        <h1 className="soundcloud-title">{this.state.track.title}</h1>
+        {<button className="soundcloud-play" onClick={this.togglePlaying}>
           {this.state.stream && this.state.stream.isPlaying() ? "Pause" : "Play"}
         </button>}
 
-        <div dangerouslySetInnerHTML={this.state.embed} />
+        <div className="soundcloud-album" dangerouslySetInnerHTML={this.state.embed} />
       </div>
     );
   }
