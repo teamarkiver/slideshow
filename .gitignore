@@ -1,4 +1,5 @@
 node_modules
+aws-creds-slideshow-production.json
 .tmp
 .sass-cache
 .DS_Store
