@@ -33,11 +33,11 @@ var Router = Backbone.Router.extend({
       });
 
       // initiate auth popup
-      SC.connect().then(function() {
-        return SC.get('/me');
-      }).then(function(me) {
-        alert('Hello, ' + me.username);
-      });
+      // SC.connect().then(function() {
+      //   return SC.get('/me');
+      // }).then(function(me) {
+      //   alert('Hello, ' + me.username);
+      // });
     },
     execute: function(routeMethod, args) {
       $(window).scrollTop(0,0) // something like this
