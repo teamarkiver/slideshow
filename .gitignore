@@ -4,3 +4,8 @@ aws-creds-slideshow-production.json
 .sass-cache
 .DS_Store
 dist/
+
+# deployment stuff
+aws-creds-slideshow-production.json
+.awspublish-slideshow.arkiver.com
+.awspublish-arkiver-s3-slideshow-production-bucket
