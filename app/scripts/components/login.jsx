@@ -22,8 +22,9 @@ var UserLoginComponent = React.createClass({
     return(
       <div className="main-login row">
         <div className="align-log">
-          <h2 className="login-title">SlideShow</h2>
           <img className="slideshow-image" src="./images/Slideshow2.png" />
+          <h2 className="login-title">Slideshow</h2>
+          <h3 className="login-subtitle">for Arkiver</h3>
         </div>
 
         <div className="logmein row">
@@ -31,7 +32,7 @@ var UserLoginComponent = React.createClass({
             <form onSubmit={this.handleLogIn} className="navbar-form" id="login-user">
               <input type="text" className="log-email loglog" placeholder="Email"></input>
               <input type="password" className="log-password loglog" placeholder="Password"></input>
-              <button className="login btn btn-success">Log In</button>
+              <button className="login btn btn-success">LOGIN</button>
             </form>
           </div>
         </div>

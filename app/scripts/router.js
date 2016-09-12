@@ -4,9 +4,9 @@ var ReactDOM = require('react-dom');
 var $ = require('jquery');
 
 var UserLoginComponent = require('./components/login.jsx').UserLoginComponent;
-var SlideListComponent = require('./components/slidelist.jsx').SlideListComponent;
-var CreateUpdateShowComponent = require('./components/editor.jsx').CreateUpdateShowComponent;
-var ViewSlideShowComponent = require('./components/showview.jsx').ViewSlideShowComponent;
+var SlideListComponent = require('./components/listofslides.jsx').SlideListComponent;
+var CreateUpdateShowComponent = require('./components/editslideshow.jsx').CreateUpdateShowComponent;
+var ViewSlideShowComponent = require('./components/viewslideshow.jsx').ViewSlideShowComponent;
 
 function userIsLoggedIn(){
   if (localStorage["user_email"] && localStorage["user_token"]){
