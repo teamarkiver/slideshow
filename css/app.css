@@ -6226,8 +6226,8 @@ img {
   color: #abadac;
   font-family: Helvetica-light;
   text-align: center;
-  margin-top: -5px;
-  margin-left: 100px;
+  margin-top: -15px;
+  margin-left: 150px;
   font-weight: lighter;
   font-size: 20px; }
 
@@ -6250,7 +6250,6 @@ img {
 
 .slideshow-item {
   list-style: none;
-  border-bottom: 1px solid #f0f1f0;
   color: #918D86;
   font-size: 18px; }
 
@@ -6301,11 +6300,11 @@ img {
     box-shadow: 5px 4px 5px -3px #4eab79,-5px -4px 5px -3px #4eab79,-5px 4px 5px -3px #4eab79; }
 
 .slideshow-actions {
-  margin-top: 20px; }
+  padding-top: 20px; }
 
 .delete {
   font-family: 'ff-tisa-sans-web-pro';
-  margin-top: -25px;
+  margin-top: -20px;
   background: #fae1e1;
   margin-right: 3px;
   color: #ef6666;
@@ -6318,7 +6317,7 @@ img {
 .view {
   font-family: 'ff-tisa-sans-web-pro';
   background: rgba(78, 171, 121, 0.2);
-  margin-top: -25px;
+  margin-top: -20px;
   color: #4eab79;
   border: 1px solid #4eab79;
   margin-right: 3px;
@@ -6332,7 +6331,7 @@ img {
 
 .edit {
   font-family: 'ff-tisa-sans-web-pro';
-  margin-top: -25px;
+  margin-top: -20px;
   margin-right: 3px;
   border: 1px solid #4eab79;
   display: inline-block;
@@ -6386,15 +6385,19 @@ img {
   border-radius: 3px;
   padding-left: 7px; }
 
+.save-me {
+  color: white; }
+
 .save {
   position: fixed;
   bottom: 0px;
   text-align: center;
   height: 50px;
   width: 100%;
-  background-color: rgba(249, 251, 250, 0.98);
+  background-color: #d1e5db;
+  color: #4da978;
+  border: 1px solid #4eab79;
   font-family: 'ff-tisa-sans-web-pro';
-  background-color: #F37676;
   width: 150px;
   font-size: 18px;
   margin-top: 20px; }
@@ -6403,7 +6406,8 @@ img {
   font-family: 'ff-tisa-sans-web-pro';
   -webkit-transition-duration: .25s;
           transition-duration: .25s;
-  background-color: #C10000; }
+  background-color: #4eab79;
+  border: 1px solid #4eab79; }
 
 .track-box {
   width: 960px;
@@ -6430,7 +6434,8 @@ img {
   display: none; }
 
 .viewer-toolbar {
-  margin-left: 595px; }
+  width: 85px;
+  margin: 0 auto; }
 
 .viewer-zoom-in {
   display: none; }
