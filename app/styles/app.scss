@@ -188,8 +188,8 @@ img {
   color: rgb(171,173,172);
   font-family:  Helvetica-light;
   text-align: center;
-  margin-top: -5px;
-  margin-left: 100px;
+  margin-top: -15px;
+  margin-left: 150px;
   font-weight: lighter;
   font-size: 20px;
 }
@@ -213,7 +213,6 @@ img {
 // Slide list
 .slideshow-item{
   list-style: none;
-  border-bottom: 1px solid #f0f1f0;
   color: #918D86;
   font-size: 18px;
 }
@@ -277,11 +276,11 @@ img {
 }
 //Buttons
 .slideshow-actions{
-  margin-top: 20px;
+  padding-top: 20px;
 }
 .delete{
   font-family: 'ff-tisa-sans-web-pro';
-  margin-top: -25px;
+  margin-top: -20px;
   background: #fae1e1;
   margin-right: 3px;
   color:  #ef6666;
@@ -293,7 +292,7 @@ img {
 .view{
   font-family: 'ff-tisa-sans-web-pro';
   background: rgba(78,171,121,.2);
-  margin-top: -25px;
+  margin-top: -20px;
   color: #4eab79;
   border: 1px solid #4eab79;
   margin-right: 3px;
@@ -306,7 +305,7 @@ img {
 }
 .edit{
   font-family: 'ff-tisa-sans-web-pro';
-  margin-top: -25px;
+  margin-top: -20px;
   margin-right: 3px;
   border: 1px solid #4eab79;
   display: inline-block;
@@ -361,7 +360,7 @@ img {
   padding-left: 7px;
 }
 .save-me{
-
+  color: white;
 }
 .save{
   position: fixed;
@@ -371,9 +370,10 @@ img {
   text-align: center;
   height: 50px;
   width: 100%;
-  background-color: rgba(249,251,250,.98);
+  background-color: rgb(209,229,219);
+  color: rgb(77,169,120);
+  border: 1px solid #4eab79;
   font-family: 'ff-tisa-sans-web-pro';
-  background-color: #F37676;
   width: 150px;
   font-size: 18px;
   margin-top: 20px;
@@ -382,7 +382,8 @@ img {
 .save:hover{
   font-family: 'ff-tisa-sans-web-pro';
   transition-duration: .25s;
-  background-color: #C10000;
+  background-color: #4eab79;
+  border: 1px solid #4eab79;
 }
 // Select track
 .track-box{
@@ -413,7 +414,8 @@ img {
 }
 // Viewer Plug in
 .viewer-toolbar{
-  margin-left: 595px;
+  width: 85px;
+  margin: 0 auto;
 }
 .viewer-zoom-in{
   display: none;
