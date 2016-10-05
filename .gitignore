@@ -6,6 +6,8 @@ aws-creds-slideshow-production.json
 .DS_Store
 dist/
 
+npm-debug.log
+
 # deployment stuff
 aws-creds-slideshow-production.json
 .awspublish-slideshow.arkiver.com
