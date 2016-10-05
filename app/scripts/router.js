@@ -4,9 +4,9 @@ var ReactDOM = require('react-dom');
 var $ = require('jquery');
 
 var UserLoginComponent = require('./components/login.jsx').UserLoginComponent;
-var SlideListComponent = require('./components/slidelist.jsx').SlideListComponent;
-var CreateUpdateShowComponent = require('./components/editor.jsx').CreateUpdateShowComponent;
-var ViewSlideShowComponent = require('./components/showview.jsx').ViewSlideShowComponent;
+var SlideListComponent = require('./components/listofslides.jsx').SlideListComponent;
+var CreateUpdateShowComponent = require('./components/editslideshow.jsx').CreateUpdateShowComponent;
+var ViewSlideShowComponent = require('./components/viewslideshow.jsx').ViewSlideShowComponent;
 
 function userIsLoggedIn(){
   if (localStorage["user_email"] && localStorage["user_token"]){
@@ -25,6 +25,19 @@ var Router = Backbone.Router.extend({
         'slide/:id': 'viewer'
 
 
+    },
+    initialize: function(){
+      SC.initialize({
+        client_id: '385569c7d665b0e5a16779f44870a89b',
+        redirect_uri: 'https://rhc912.github.io/final-project-soundcloud/callback.html'
+      });
+
+      // initiate auth popup
+      // SC.connect().then(function() {
+      //   return SC.get('/me');
+      // }).then(function(me) {
+      //   alert('Hello, ' + me.username);
+      // });
     },
     execute: function(routeMethod, args) {
       $(window).scrollTop(0,0) // something like this

@@ -13,6 +13,7 @@ var CreateUpdateShowComponent = React.createClass({
   getInitialState: function(){
     return {
       momentCollection: [],
+      rob: "",
       moment: [],
       'slideshow': new SlideShow()
     };
@@ -21,6 +22,7 @@ var CreateUpdateShowComponent = React.createClass({
     var self = this;
     var momentCollection = new MomentCollection();
     var slideshow = this.state.slideshow;
+
 
     momentCollection.fetch().done(function(){
       self.setState({'momentCollection': momentCollection})
@@ -48,6 +50,10 @@ var CreateUpdateShowComponent = React.createClass({
     });
 
   },
+  componentDidMount: function(){
+
+
+  },
   handleChange: function(moment){
     var self = this;
     console.log("moment is",moment);
@@ -64,6 +70,8 @@ var CreateUpdateShowComponent = React.createClass({
   },
   handleSave: function(){
     var self = this;
+    console.log(this.state.song)
+
     // Build an array of the selected image ids
     var selectedMoments = _.pluck(this.state.momentCollection.where({selected: true}), 'id');
     console.log("selectedMoments are ", selectedMoments);
@@ -91,7 +99,6 @@ var CreateUpdateShowComponent = React.createClass({
   render: function(){
     console.log(this.state.slideshow);
     var self = this;
-
     var momentListDisplay = this.state.momentCollection.map(function(moment, index){
       return (
         <li className={"image-thumb " + (moment.get('selected') ? 'active' : '')}  data-moment-id={moment.get("id")} onClick={function(){ self.handleSelectedState(moment) }} key={index}>
@@ -120,6 +127,9 @@ var CreateUpdateShowComponent = React.createClass({
           <footer className="row">
             <button onClick={this.handleSave} type="submit" className="save btn btn-danger col-xs-offset-6 col-md-3">Save</button>
           </footer>
+        </div>
+        <div className="save-me row">
+          <button onClick={this.handleSave} type="submit" className="save btn btn-danger col-md-2 col-md-offset-6">Save</button>
         </div>
       </div>
     )

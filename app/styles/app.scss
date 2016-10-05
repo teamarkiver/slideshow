@@ -14,11 +14,17 @@ $icon-font-path: '../../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
   box-sizing: border-box;
 }
 body, span{
-  font-family: 'ff-tisa-sans-web-pro';
+  font-family:  Helvetica-light;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  font-smoothing: antialiased;
 }
 
 img {
   max-width: 100%;
+}
+.song-set{
+  list-style: none;
 }
 //container
 .container-fluid{
@@ -26,8 +32,8 @@ img {
   padding-left: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
-  background: rgba(249,251,250,.98);
-  height: 900px;
+  background: white;
+  height: 1300px;
 }
 //Header
 .banner{
@@ -36,6 +42,12 @@ img {
   padding-top: 5px;
 }
 // login
+.main-login{
+  margin-top: 100px;
+}
+.align-log{
+  text-align: center;
+}
 .navbar-form{
   margin-top: 20px;
 }
@@ -43,9 +55,17 @@ img {
   font-size: 40px;
   color: #5a5c5b;
   text-align: center;
+  font-family:  Helvetica-light;
 }
-.slideshow-app{
-  width: 200px;
+.login-subtitle{
+  font-size: 25px;
+  color: rgb(171,173,172);
+  font-family:  Helvetica-light;
+  font-weight: lighter;
+  margin-top: -15px;
+  margin-left: 100px;
+  font-size: 20px;
+}
 
 }
 .secondary-login{
@@ -53,7 +73,7 @@ img {
 }
 
 .loglog{
-  width: 100%;
+  margin-left: -24px;
 }
 .log-email{
   padding: 10px;
@@ -73,7 +93,8 @@ img {
   margin-top: 10px;
   font-size: 18px;
   //line-height: 37px;
-  width: 166px;
+  width: 213px;
+  margin-left: -24px;
   background-color: rgb(209,229,219);
   color: rgb(77,169,120);
   border: 1px solid #4eab79;
@@ -142,12 +163,13 @@ img {
 }
 //Slide list
 .slider-main{
-  background-color: #f9fbfa;
+  background-color: white;
 }
 .slide-container{
   width: 960px;
   // height: 100%;
   border: 1px solid #f0f1f0;
+  padding-top: 12px;
   border-radius: 4px;
   background-color: white;
 }
@@ -161,19 +183,29 @@ img {
   background-color: white
 }
 .title-slide{
-  font-size: 40px;
+  font-family:  Helvetica-light;
+  font-size: 50px;
   color: #5a5c5b;
   text-align: center;
 }
+.title-pic{
+  padding-right: 5px;
+}
 .title-author{
-  color: #5a5c5b;
+  font-size: 25px;
+  color: rgb(171,173,172);
+  font-family:  Helvetica-light;
   text-align: center;
-  font-size: 16px;
+  margin-top: -15px;
+  margin-left: 150px;
+  font-weight: lighter;
+  font-size: 20px;
 }
 .back-link{
   font-family: 'ff-tisa-sans-web-pro';
   margin-left: 25px;
   font-size: 22px;
+  float: left;
   color: #4eab79;
 }
 .back-link-second{
@@ -182,10 +214,13 @@ img {
 .back-link-second:hover{
   color: #4eab79;
 }
+.devs{
+  font-size: 15px;
+  float: right;
+}
 // Slide list
 .slideshow-item{
   list-style: none;
-  border-bottom: 1px solid #f0f1f0;
   color: #918D86;
   font-size: 18px;
 }
@@ -195,8 +230,13 @@ img {
   font-family: 'ff-tisa-sans-web-pro';
 }
 // Images
+.soundcloud-app{
+  margin-top: 5px;
+}
 
-
+.slideshow-image{
+  width: 200px;
+}
 .image-thumb{
   label{
     margin-bottom: 0px;
@@ -244,11 +284,11 @@ img {
 }
 //Buttons
 .slideshow-actions{
-  margin-top: 20px;
+  padding-top: 20px;
 }
 .delete{
   font-family: 'ff-tisa-sans-web-pro';
-  margin-top: -25px;
+  margin-top: -20px;
   background: #fae1e1;
   margin-right: 3px;
   color:  #ef6666;
@@ -257,29 +297,30 @@ img {
 .delete:hover{
   transition-duration: .25s;
 }
-.edit{
+.view{
   font-family: 'ff-tisa-sans-web-pro';
   background: rgba(78,171,121,.2);
-  margin-top: -25px;
+  margin-top: -20px;
   color: #4eab79;
   border: 1px solid #4eab79;
   margin-right: 3px;
   display: inline-block;
 }
-.edit:hover{
+.view:hover{
   transition-duration: .25s;
   background-color: #4eab79;
   border: 1px solid #4eab79;
 }
-.view{
+.edit{
   font-family: 'ff-tisa-sans-web-pro';
-  margin-top: -25px;
+  margin-top: -20px;
   margin-right: 3px;
+  border: 1px solid #4eab79;
   display: inline-block;
   background-color: white;
   color: #4eab79;
 }
-.view:hover{
+.edit:hover{
   transition-duration: .25s;
   background-color: #4eab79;
 }
@@ -287,7 +328,7 @@ img {
   font-family: 'ff-tisa-sans-web-pro';
   margin-top: 20px;
   margin-bottom: 10px;
-  width: 150px;
+  width: 160px;
   font-size: 18px;
   background-color: rgb(209,229,219);
   color: rgb(77,169,120);
@@ -327,15 +368,21 @@ img {
   border-radius: 3px;
   padding-left: 7px;
 }
+.save-me{
+  color: white;
+}
 .save{
   position: fixed;
   bottom: 0px;
-  left: 0px;
-  right: 0px;
+  // left: 0px;
+  // right: 0px;
+  text-align: center;
   height: 50px;
-  background-color: rgba(249,251,250,.98);
+  width: 100%;
+  background-color: rgb(209,229,219);
+  color: rgb(77,169,120);
+  border: 1px solid #4eab79;
   font-family: 'ff-tisa-sans-web-pro';
-  background-color: #F37676;
   width: 150px;
   font-size: 18px;
   margin-top: 20px;
@@ -344,11 +391,40 @@ img {
 .save:hover{
   font-family: 'ff-tisa-sans-web-pro';
   transition-duration: .25s;
-  background-color: #C10000;
+  background-color: #4eab79;
+  border: 1px solid #4eab79;
+}
+// Select track
+.track-box{
+  width:960px;
+  margin-top: 20px;
+  text-align: center;
+  border: 1px solid #f0f1f0;
+  background-color: white;
+}
+.select-track{
+  font-family: 'ff-tisa-sans-web-pro';
+  text-align: center;
+}
+.song-select{
+  text-align: center;
+  margin-top: 5px;
+}
+//Soundcloud view
+.soundcloud-title{
+  display: none;
+
+}
+.soundcloud-play{
+  display: none;
+}
+.soundcloud-album{
+  display: none;
 }
 // Viewer Plug in
 .viewer-toolbar{
-  margin-left: 595px;
+  width: 85px;
+  margin: 0 auto;
 }
 .viewer-zoom-in{
   display: none;

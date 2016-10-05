@@ -2,6 +2,7 @@ node_modules
 aws-creds-slideshow-production.json
 .tmp
 .sass-cache
+aws-creds-slideshow-production.json
 .DS_Store
 dist/
 
