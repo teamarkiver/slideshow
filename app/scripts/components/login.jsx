@@ -21,9 +21,9 @@ var UserLoginComponent = React.createClass({
   render: function(){
     return(
       <div className="main-login row">
-        <div>
-          <h2 className="login-title col-md-offset-4 col-md-4">SlideShow</h2>
-          <img className="col-md-offset-4 col-md-4" src="./images/Slideshow.png" />
+        <div className="secondary-login">
+          <h2 className="login-title">SlideShow</h2>
+          <img className="slideshow-app" src="./images/Slideshow.png" />
         </div>
 
         <div className="logmein row">

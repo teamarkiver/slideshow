@@ -37,11 +37,18 @@ img {
 }
 // login
 .navbar-form{
-  margin-top: 100px;
+  margin-top: 20px;
 }
 .login-title{
   font-size: 40px;
   color: #5a5c5b;
+  text-align: center;
+}
+.slideshow-app{
+  width: 200px;
+
+}
+.secondary-login{
   text-align: center;
 }
 
@@ -144,6 +151,9 @@ img {
   border-radius: 4px;
   background-color: white;
 }
+.list-group{
+  padding-top: 5px;
+}
 .slide-second-container{
   width: 960px;
   border: 1px solid #f0f1f0;
@@ -206,8 +216,8 @@ img {
     height: 25px;
     border-radius: 25px;
     position: absolute;
-    top: -4px;
-    right: -4px;
+    top: -9px;
+    right: -9px;
 
     .active-indicator {
       background: #4eab79;
@@ -296,6 +306,7 @@ img {
   border: 1px solid #ddd;
   width: 341px;
   font-size: 28px;
+  text-align: center;
   font-family: 'ff-tisa-sans-web-pro';
   margin-bottom: 15px;
   margin-top: 15px;

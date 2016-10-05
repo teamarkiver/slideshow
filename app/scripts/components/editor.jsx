@@ -112,13 +112,13 @@ var CreateUpdateShowComponent = React.createClass({
         </div>
         <div className="slid row">
             <div className="col-md-7 col-md-offset-5">
-                <input onChange={this.handleTitleChange} value={this.state.title}  className="create-title"  type="text" name="title" placeholder="Enter Title" />
+                <input onChange={this.handleTitleChange} value={this.state.title}  className="create-title"  type="text" name="title" placeholder="Create Title" />
           </div>
           <div className="slide-second-container col-md-10 col-md-offset-2">
             {momentListDisplay}
           </div>
           <footer className="row">
-            <button onClick={this.handleSave} type="submit" className="save btn btn-danger col-xs-offset-5 col-md-3">Save</button>
+            <button onClick={this.handleSave} type="submit" className="save btn btn-danger col-xs-offset-6 col-md-3">Save</button>
           </footer>
         </div>
       </div>
